@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>360 Video</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/hls.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <video id="video" autoplay controls></video>
+  <script>
+    var video = document.getElementById('video');
+    var videoSrc = 'http://localhost:8000/live/tmp/index.m3u8';
+    //
+    // First check for native browser HLS support
+    //
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      //
+      // If no native HLS support, check if hls.js is supported
+      //
+    } else if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    }
+  </script>
+</body>
+</html>

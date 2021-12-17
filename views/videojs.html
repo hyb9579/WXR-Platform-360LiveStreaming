@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+</head>
+<body>
+    <video id="video" class="video-js vjs-default-skin" controls autoplay width="592" height="340" data-setup='{}'>
+        <source src="http://localhost:8000/live/tmp/index.m3u8" type="application/x-mpegURL">
+    </video>
+
+
+  <script>
+    var videoElement = document.querySelector('#video');
+    var player = videojs(videoElement);
+    player.play();
+  </script>
+</body>
+</html>

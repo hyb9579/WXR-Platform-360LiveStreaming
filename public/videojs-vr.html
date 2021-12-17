@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../node_modules/video.js/dist/video-js.css" rel="stylesheet">
+    <link href="../node_modules/videojs-vr/dist/videojs-vr.css" rel="stylesheet">
+    <script src="../node_modules/video.js/dist/video.js"></script>
+    <script src="../node_modules/videojs-vr/videojs-vr.js"></script>
+</head>
+
+<body>
+    <video id="video" controls autoplay width="592" height="340">
+        <source src="http://localhost:8000/live/tmp/index.m3u8" type="application/x-mpegURL">
+    </video>
+
+    <script>
+        var videoElement = document.querySelector('#video');
+        var player = videojs(videoElement);
+        player.vr();    
+    </script>
+</body>
+</html>
